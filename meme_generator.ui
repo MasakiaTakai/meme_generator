@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>731</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Grok's Meme Generator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: black;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="shareButton">
+      <property name="font">
+       <font>
+        <family>Meiryo</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-color: black;
+border-color: black white white black;
+border-style: solid;
+border-width: 1px;
+border-radius:20px;
+color: white;
+padding: 5px;
+}
+QPushButton:hover {
+background-color: #55acee;
+}</string>
+      </property>
+      <property name="text">
+       <string>Post to X with Grok</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="topTextLayout">
+      <item>
+       <widget class="QLabel" name="topTextLabel">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;</string>
+        </property>
+        <property name="text">
+         <string>投稿キャプション</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="topTextEdit">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>11</pointsize>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: black;
+background-color: white;
+border-top: 1px solid black;
+border-left: 1px solid black;
+border-bottom: 1px solid white;
+border-right: 1px solid black;</string>
+        </property>
+        <property name="placeholderText">
+         <string>Enter caption for X post</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="imageCanvas">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>1</horstretch>
+        <verstretch>1</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>600</width>
+        <height>450</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: black;
+border: 1px solid white;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="bottomTextLayout">
+      <item>
+       <widget class="QLabel" name="bottomTextLabel">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: white;</string>
+        </property>
+        <property name="text">
+         <string>下部テキスト</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="bottomTextEdit">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>11</pointsize>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: black;
+background-color: white;
+border-top: 1px solid black;
+border-left: 1px solid black;
+border-bottom: 1px solid white;
+border-right: 1px solid black;</string>
+        </property>
+        <property name="placeholderText">
+         <string>Enter bottom text for meme</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="controlsLayout">
+      <item row="2" column="0">
+       <widget class="QLabel" name="fontSizeLabel">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: black;
+border-style: solid;
+border-width: 1px;
+color: white;</string>
+        </property>
+        <property name="text">
+         <string>フォントサイズ</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QSlider" name="fontSizeSlider">
+        <property name="styleSheet">
+         <string notr="true">QSlider::groove:horizontal {
+background: black;
+height: 8px;
+border: 1px solid white;
+}
+QSlider::handle:horizontal {
+background: #1DA1F2;
+border: 1px solid white;
+width: 18px;
+margin: -2px 0;
+border-radius: 9px;
+}</string>
+        </property>
+        <property name="minimum">
+         <number>10</number>
+        </property>
+        <property name="maximum">
+         <number>500</number>
+        </property>
+        <property name="singleStep">
+         <number>10</number>
+        </property>
+        <property name="value">
+         <number>75</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="paddingLabel">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: black;
+border-style: solid;
+border-width: 1px;
+color: white;</string>
+        </property>
+        <property name="text">
+         <string>TOPパディング</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QSlider" name="paddingSlider">
+        <property name="styleSheet">
+         <string notr="true">QSlider::groove:horizontal {
+background: black;
+height: 8px;
+border: 1px solid white;
+}
+QSlider::handle:horizontal {
+background: #1DA1F2;
+border: 1px solid white;
+width: 18px;
+margin: -2px 0;
+border-radius: 9px;
+}</string>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>300</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>20</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QLabel" name="topLeftMarginLabel">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: black;
+border-style: solid;
+border-width: 1px;
+color: white;</string>
+        </property>
+        <property name="text">
+         <string>LEFTパディング</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="4">
+       <widget class="QSlider" name="topLeftMarginSlider">
+        <property name="styleSheet">
+         <string notr="true">QSlider::groove:horizontal {
+background: black;
+height: 8px;
+border: 1px solid white;
+}
+QSlider::handle:horizontal {
+background: #1DA1F2;
+border: 1px solid white;
+width: 18px;
+margin: -2px 0;
+border-radius: 9px;
+}</string>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>300</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>10</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="QLabel" name="bottomPaddingLabel">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: black;
+border-style: solid;
+border-width: 1px;
+color: white;</string>
+        </property>
+        <property name="text">
+         <string>BOTTOMパディング</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="5">
+       <widget class="QSlider" name="bottomPaddingSlider">
+        <property name="styleSheet">
+         <string notr="true">QSlider::groove:horizontal {
+background: black;
+height: 8px;
+border: 1px solid white;
+}
+QSlider::handle:horizontal {
+background: #1DA1F2;
+border: 1px solid white;
+width: 18px;
+margin: -2px 0;
+border-radius: 9px;
+}</string>
+        </property>
+        <property name="minimum">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <number>300</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>20</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="buttonLayout">
+      <item>
+       <widget class="QPushButton" name="templateButton">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>12</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+background-color: black;
+border-color: black white white black;
+border-style: solid;
+border-width: 1px;
+border-radius:20px;
+color: white;
+padding: 5px;
+}
+QPushButton:hover {
+background-color: #55acee;
+}</string>
+        </property>
+        <property name="text">
+         <string>ランダム生成</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="loadButton">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+background-color: black;
+border-color: black white white black;
+border-style: solid;
+border-width: 1px;
+border-radius:20px;
+color: white;
+padding: 5px;
+}
+QPushButton:hover {
+background-color: #55acee;
+}</string>
+        </property>
+        <property name="text">
+         <string>画像を読み込む</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="clearButton">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+background-color: black;
+border-color: black white white black;
+border-style: solid;
+border-width: 1px;
+border-radius:20px;
+color: white;
+padding: 5px;
+}
+QPushButton:hover {
+background-color: #55acee;
+}</string>
+        </property>
+        <property name="text">
+         <string>クリア</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="saveButton">
+        <property name="font">
+         <font>
+          <family>Meiryo</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+background-color: black;
+border-color: black white white black;
+border-style: solid;
+border-width: 1px;
+border-radius:20px;
+color: white;
+padding: 5px;
+}
+QPushButton:hover {
+background-color: #55acee;
+}</string>
+        </property>
+        <property name="text">
+         <string>保存</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
